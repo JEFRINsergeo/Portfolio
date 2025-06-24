@@ -17,11 +17,10 @@
       width: 200px;
       position: fixed;
       top: 0;
-      right: -200px;
-      background-color: rgba(255, 255, 255, 0.1); /* Glassy transparency */
-      backdrop-filter: blur(10px); /* Frosted glass effect */
+      right: 0; /* Always visible */
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
-      transition: right 0.3s ease;
       padding-top: 20px;
       z-index: 1000;
       border-left: 1px solid rgba(255, 255, 255, 0.2);
@@ -43,12 +42,14 @@
       padding: 20px;
       color: white;
       text-shadow: 0 0 4px #000;
+      margin-right: 220px; /* Make space for fixed navbar */
     }
+
     .typing-text {
-  font-size: 1.2rem;
-  font-weight: 500;
-  color: #00d0ff;
-}
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: #00d0ff;
+    }
   </style>
 </head>
 <body>
@@ -64,55 +65,42 @@
   <a href="contact.html">Contact</a>
 </div>
 
-<div class="main" style="margin-left: 500px;margin-top: 50px;">
-    <p style="font-size:50px;font-weight: 800;opacity: 40%;">HI!</p>
-    <p style="font-size:50px;font-weight: 800;opacity: 40%;">Jefrin Sergeo J G</p>
-    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b style="color: #00d0ff;">I'am</b> &nbsp;&nbsp;<span class="typing-text"></span></p>
-   
-  </div>
+<div class="main" style="margin-left: 50px; margin-top: 50px;">
+  <p style="font-size:50px;font-weight: 800;opacity: 40%;">HI!</p>
+  <p style="font-size:50px;font-weight: 800;opacity: 40%;">Jefrin Sergeo J G</p>
+  <p><b style="color: #00d0ff;">I'm</b> <span class="typing-text"></span></p>
+</div>
 
 <script>
-  const sidenav = document.getElementById('sidenav');
-
-  document.addEventListener('mousemove', function(e) {
-    const screenWidth = window.innerWidth;
-    const distanceFromRight = screenWidth - e.clientX;
-
-    if (distanceFromRight < 50) {
-      sidenav.style.right = '0';
-    } else if (distanceFromRight > 200) {
-      sidenav.style.right = '-200px';
-    }
-  });
   const text = [
-  "Software Developer",
-  "Python Enthusiast",
-  "Problem Solver",
-  "Tech Explorer"
-];
+    "Software Developer",
+    "Python Enthusiast",
+    "Problem Solver",
+    "Tech Explorer"
+  ];
 
-let count = 0;
-let index = 0;
-let currentText = '';
-let letter = '';
-const typingTextElement = document.querySelector('.typing-text');
+  let count = 0;
+  let index = 0;
+  let currentText = '';
+  let letter = '';
+  const typingTextElement = document.querySelector('.typing-text');
 
-(function type() {
-  if (count === text.length) {
-    count = 0;
-  }
-  currentText = text[count];
-  letter = currentText.slice(0, ++index);
+  (function type() {
+    if (count === text.length) {
+      count = 0;
+    }
+    currentText = text[count];
+    letter = currentText.slice(0, ++index);
 
-  typingTextElement.textContent = letter;
-  if (letter.length === currentText.length) {
-    count++;
-    index = 0;
-    setTimeout(type, 1200); // pause before next word
-  } else {
-    setTimeout(type, 100);
-  }
-})();
+    typingTextElement.textContent = letter;
+    if (letter.length === currentText.length) {
+      count++;
+      index = 0;
+      setTimeout(type, 1200);
+    } else {
+      setTimeout(type, 100);
+    }
+  })();
 </script>
 
 </body>
