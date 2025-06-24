@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Skills with Icon Preview (Dark Theme)</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+  <style>
+    :root {
+      --bg-color: #121212;
+      --text-color: #f0f0f0;
+      --card-bg: #1e1e1e;
+      --border-color: #333;
+      --highlight-color: #888;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .skills-section {
+      flex: 1;
+      min-width: 300px;
+      max-width: 600px;
+    }
+
+    .skills-section h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .skill-category {
+      margin-bottom: 25px;
+    }
+
+    .skill-category h3 {
+      margin-bottom: 10px;
+      font-size: 18px;
+      color: var(--highlight-color);
+    }
+
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skill {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 8px 14px;
+      font-size: 14px;
+      color: var(--text-color);
+      cursor: pointer;
+      transition: transform 0.2s, background-color 0.3s;
+    }
+
+    .skill i {
+      font-size: 18px;
+    }
+
+    .skill:hover {
+      transform: translateY(-2px);
+      background-color: #2a2a2a;
+    }
+    .icon-preview {
+  width: 200px;
+  height: 200px;
+  border: 2px  var(--highlight-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 80px;
+  background-color: var(--card-bg);
+  background-image: url('c.jpg');
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  color: var(--highlight-color);
+  transition: all 0.3s ease;
+}
+
+
+    .icon-preview i {
+      font-size: 80px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .icon-preview {
+        margin-top: 20px;
+      }
+    }
+    .sidenav {
+      height: 100%;
+      width: 200px;
+      position: fixed;
+      top: 0;
+      right: -200px;
+      background-color: rgba(255, 255, 255, 0.1); /* Glassy transparency */
+      backdrop-filter: blur(10px); /* Frosted glass effect */
+      -webkit-backdrop-filter: blur(10px);
+      transition: right 0.3s ease;
+      padding-top: 20px;
+      z-index: 1000;
+      border-left: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .sidenav a {
+      display: block;
+      color: white;
+      padding: 12px 16px;
+      text-decoration: none;
+      transition: background 0.2s ease;
+    }
+
+    .sidenav a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+  </style>
+</head>
+<body>
+  <div class="sidenav" id="sidenav">
+  <p><img src="prof.jpg" style="border-radius: 100%;height: 100px;width: 100px;margin-left: 50px;"></p>
+  <a href="port.html">Home</a>
+  <a href="skill.html">Skills & Tech Stack</a>
+  <a href="proj.html">Projects</a>
+  <a href="about.html">About Me</a>
+  <a href="intern.html">Work Experience / Freelance / Internships</a>
+  <a href="edu.html"> Certifications / Education</a>
+  <a href="contact.html">Contact</a>
+</div>
+<div class="skills-section">
+  <h2>Skills & Tech Stack</h2>
+
+  <div class="skill-category">
+    <h3>Programming Languages</h3>
+    <div class="skills-list">
+      <div class="skill" data-icon="devicon-javascript-plain colored"><i class="devicon-javascript-plain colored"></i> JavaScript</div>
+      <div class="skill" data-icon="devicon-python-plain colored"><i class="devicon-python-plain colored"></i> Python</div>
+    </div>
+  </div>
+
+  <div class="skill-category">
+    <h3>Frameworks & Libraries</h3>
+    <div class="skills-list">
+      <div class="skill" data-icon="devicon-react-original colored"><i class="devicon-react-original colored"></i> React</div>
+      <div class="skill" data-icon="devicon-nodejs-plain colored"><i class="devicon-nodejs-plain colored"></i> Node.js</div>
+      <div class="skill" data-icon="devicon-django-plain colored"><i class="devicon-django-plain colored"></i> Django</div>
+    </div>
+  </div>
+
+  <div class="skill-category">
+    <h3>Tools</h3>
+    <div class="skills-list">
+      <div class="skill" data-icon="devicon-git-plain colored"><i class="devicon-git-plain colored"></i> Git</div>
+      <div class="skill" data-icon="devicon-docker-plain colored"><i class="devicon-docker-plain colored"></i> Docker</div>
+      <div class="skill" data-icon="devicon-linux-plain colored"><i class="devicon-linux-plain colored"></i> Linux</div>
+      <div class="skill" data-icon="devicon-github-original colored"><i class="devicon-github-original colored"></i> CI/CD</div>
+    </div>
+  </div>
+
+  <div class="skill-category">
+    <h3>Databases</h3>
+    <div class="skills-list">
+      <div class="skill" data-icon="devicon-mysql-plain colored"><i class="devicon-mysql-plain colored"></i> SQL</div>
+      <div class="skill" data-icon="devicon-mongodb-plain colored"><i class="devicon-mongodb-plain colored"></i> MongoDB</div>
+      <div class="skill" data-icon="devicon-redis-plain colored"><i class="devicon-redis-plain colored"></i> Redis</div>
+    </div>
+  </div>
+
+  <div class="skill-category">
+    <h3>Cloud & DevOps</h3>
+    <div class="skills-list">
+      <div class="skill" data-icon="devicon-amazonwebservices-plain colored"><i class="devicon-amazonwebservices-plain colored"></i> AWS</div>
+      <div class="skill" data-icon="devicon-azure-plain colored"><i class="devicon-azure-plain colored"></i> Azure</div>
+      <div class="skill" data-icon="devicon-firebase-plain colored"><i class="devicon-firebase-plain colored"></i> Firebase</div>
+    </div>
+  </div>
+</div>
+<div class="icon-preview" id="iconPreview" style="margin-top: 200px;background-image: url('c.jpg');padding-bottom: 35px;">
+  <i class="devicon-code-plain"></i>
+</div>
+
+<script>
+  const skills = document.querySelectorAll('.skill');
+  const preview = document.getElementById('iconPreview');
+
+  skills.forEach(skill => {
+    skill.addEventListener('mouseenter', () => {
+      const iconClass = skill.getAttribute('data-icon');
+      preview.innerHTML = `<i class="${iconClass}"></i>`;
+    });
+
+    skill.addEventListener('mouseleave', () => {
+      preview.innerHTML = `<i class="devicon-code-plain"></i>`;
+    });
+  });
+  const sidenav = document.getElementById('sidenav');
+
+  document.addEventListener('mousemove', function(e) {
+    const screenWidth = window.innerWidth;
+    const distanceFromRight = screenWidth - e.clientX;
+
+    if (distanceFromRight < 50) {
+      sidenav.style.right = '0';
+    } else if (distanceFromRight > 200) {
+      sidenav.style.right = '-200px';
+    }
+  });
+</script>
+
+</body>
+</html>
