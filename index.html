@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jefrin Sergeo | Portfolio</title>
-  <!-- Font Awesome (for icon) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     * {
@@ -140,10 +139,11 @@
     }
 
     .right {
-      background-image: url('i1.png');
+      background-image: url('prof.jpeg');
       background-size: contain;
       background-position: center;
       background-repeat: no-repeat;
+      border-radius:100%;
     }
 
     section {
@@ -225,11 +225,8 @@
   </style>
 </head>
 <body>
-
-  <!-- NAVBAR -->
   <div class="navbar">
     <div class="branding">
-      <img src="logo.png" alt="Logo" />
       <span style="font-weight: bold;">JEFRIN SERGEO J G</span>
     </div>
     <div class="menu-toggle" onclick="toggleMenu()">☰</div>
@@ -244,8 +241,6 @@
       </a>
     </div>
   </div>
-
-  <!-- HERO SECTION -->
   <div class="section" id="home">
     <div class="left">
       <h1>Hi,</h1>
@@ -257,7 +252,6 @@
   </div>
 
   <div class="scroll-down">▼ Scroll down</div>
-  <!-- SKILLS SECTION -->
 <section id="skills" style="background: #f9f9f9; padding: 80px 40px;">
   <h2 style="font-size: 2.5rem; margin-bottom: 20px;"><i class="fas fa-tools"></i> Skills</h2>
 
@@ -296,14 +290,11 @@
   </div>
 </section>
 
-  <!-- PROJECTS SECTION -->
   <section id="projects" style="background: #f9f9f9;">
     <h2>Projects</h2>
     <p>Here you can showcase your work — links to GitHub, app demos, project screenshots, etc.</p>
   </section>
 
-  <!-- ABOUT SECTION -->
-  <!-- ABOUT SECTION -->
 <section id="about" style="background: #eef2f7; padding: 80px 40px;">
   <h2 style="font-size: 2.5rem; margin-bottom: 20px;"><i class="fas fa-user"></i> About Me</h2>
   
@@ -330,7 +321,6 @@
 </section>
 
 
-  <!-- CONTACT SECTION -->
   <section id="contact" style="background: #f1f1f1;">
     <h2>Contact</h2>
     <p>📧 Email: sergeojefrin@gmail.com<br>
@@ -339,7 +329,6 @@
        💻 GitHub: <a href="https://github.com/JEFRINsergeo" style="color:#00d0ff;">github.com/jefrinsergeo</a></p>
   </section>
 
-  <!-- SCRIPT -->
   <script>
     function toggleMenu() {
       document.getElementById("navMenu").classList.toggle("show");
