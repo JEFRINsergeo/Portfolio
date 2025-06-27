@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jefrin Sergeo | Portfolio</title>
+  <!-- Font Awesome (for icon) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      font-family: 'Segoe UI', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 999;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #222;
+      padding: 14px 24px;
+      color: white;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .branding {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .branding img {
+      height: 36px;
+      width: 36px;
+      border-radius: 50%;
+    }
+
+    .menu {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .menu a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      transition: color 0.2s;
+    }
+
+    .menu a:hover {
+      color: #00d0ff;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 28px;
+      color: white;
+      cursor: pointer;
+    }
+
+    .resume-btn {
+      background-color: #00d0ff;
+      color: #000;
+      padding: 8px 16px;
+      border-radius: 4px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .resume-btn:hover {
+      background-color: #00aacc;
+      color: white;
+      transform: scale(1.05);
+    }
+
+    .resume-btn.clicked i {
+      animation: bounceIcon 0.6s;
+    }
+
+    @keyframes bounceIcon {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    /* Hero Section */
+    .section {
+      display: flex;
+      margin-top: 70px;
+      height: calc(100vh - 70px);
+    }
+
+    .left, .right {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 60px;
+    }
+
+    .left h1 {
+      font-size: 3.5rem;
+      animation: fadeInUp 1s ease-out forwards;
+    }
+
+    .left h2 {
+      font-size: 2.5rem;
+      margin-top: 10px;
+      animation: fadeInUp 1.4s ease-out forwards;
+    }
+
+    .typing-text {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #00d0ff;
+      margin: 10px 0;
+      animation: fadeInUp 1.8s ease-out forwards;
+    }
+
+    #a {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #333;
+      max-width: 600px;
+      margin-top: 10px;
+      animation: fadeInUp 2.1s ease-out forwards;
+    }
+
+    .right {
+      background-image: url('i1.png');
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    section {
+      padding: 100px 40px;
+    }
+
+    section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    section p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      max-width: 800px;
+    }
+
+    .scroll-down {
+      text-align: center;
+      margin-top: 20px;
+      color: #888;
+      font-size: 16px;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    @media (max-width: 768px) {
+      .menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 100%;
+        background: #222;
+        padding: 20px;
+      }
+
+      .menu.show {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .section {
+        flex-direction: column;
+        height: auto;
+      }
+
+      .left, .right {
+        width: 100%;
+        align-items: center;
+        text-align: center;
+        padding: 40px 20px;
+      }
+
+      .right {
+        height: 300px;
+        background-size: cover;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <div class="navbar">
+    <div class="branding">
+      <img src="logo.png" alt="Logo" />
+      <span style="font-weight: bold;">JEFRIN SERGEO J G</span>
+    </div>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <div class="menu" id="navMenu">
+      <a href="#home">Home</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a href="resume.pdf" download class="resume-btn" onclick="animateDownload(this)">
+        <i class="fa-solid fa-file-arrow-down"></i> Resume
+      </a>
+    </div>
+  </div>
+
+  <!-- HERO SECTION -->
+  <div class="section" id="home">
+    <div class="left">
+      <h1>Hi,</h1>
+      <h2>I'm Jefrin</h2>
+      <p class="typing-text"></p>
+      <p id="a">on a mission to turn ideas into clean, scalable, and impactful code.</p>
+    </div>
+    <div class="right"></div>
+  </div>
+
+  <div class="scroll-down">▼ Scroll down</div>
+  <!-- SKILLS SECTION -->
+<section id="skills" style="background: #f9f9f9; padding: 80px 40px;">
+  <h2 style="font-size: 2.5rem; margin-bottom: 20px;"><i class="fas fa-tools"></i> Skills</h2>
+
+  <div style="font-size: 1.1rem; line-height: 1.7; max-width: 900px;">
+
+    <h3><i class="fas fa-code"></i> Programming Languages</h3>
+    <ul>
+      <li>Python, JavaScript (ES6+), Java</li>
+    </ul>
+
+    <h3><i class="fas fa-laptop-code"></i> Web Development</h3>
+    <ul>
+      <li>HTML5, CSS3, React.js, Node.js, Tailwind CSS, Django</li>
+    </ul>
+
+    <h3><i class="fas fa-database"></i> Databases</h3>
+    <ul>
+      <li>MySQL, MongoDB</li>
+    </ul>
+
+    <h3><i class="fas fa-cogs"></i> Tools & Platforms</h3>
+    <ul>
+      <li>Git & GitHub, VS Code, Postman</li>
+    </ul>
+
+    <h3><i class="fas fa-brain"></i> Other Skills</h3>
+    <ul>
+      <li>Data Structures & Algorithms, REST APIs, Firebase basics</li>
+    </ul>
+
+    <h3><i class="fas fa-users"></i> Soft Skills</h3>
+    <ul>
+      <li>Team Collaboration, Time Management, Creative Thinking</li>
+    </ul>
+
+  </div>
+</section>
+
+  <!-- PROJECTS SECTION -->
+  <section id="projects" style="background: #f9f9f9;">
+    <h2>Projects</h2>
+    <p>Here you can showcase your work — links to GitHub, app demos, project screenshots, etc.</p>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <!-- ABOUT SECTION -->
+<section id="about" style="background: #eef2f7; padding: 80px 40px;">
+  <h2 style="font-size: 2.5rem; margin-bottom: 20px;"><i class="fas fa-user"></i> About Me</h2>
+  
+  <p style="font-size: 1.1rem; line-height: 1.7; max-width: 900px;">
+    I'm <strong>Jefrin Sergeo</strong>, a passionate <strong>Computer Science Engineering</strong> student who enjoys turning ideas into real-world software solutions. With a keen eye for detail and a drive for clean, scalable code, I thrive in solving problems creatively and efficiently.
+  </p><br>
+
+  <p style="font-size: 1.1rem; line-height: 1.7; max-width: 900px;">
+    My interests lie in full-stack web development, Python programming, and building user-friendly applications. I'm currently exploring cloud technologies and artificial intelligence to broaden my tech horizon.
+  </p><br>
+
+  <p style="font-size: 1.1rem; line-height: 1.7; max-width: 900px;">
+    <i class="fas fa-location-dot" style="color: #00d0ff;"></i> <strong>Location:</strong> Tamil Nadu, India<br>
+    <i class="fas fa-graduation-cap" style="color: #00d0ff;"></i> <strong>Education:</strong> B.E. in CSE, Sathyabama University (2023-2027)<br>
+    <i class="fas fa-briefcase" style="color: #00d0ff;"></i> <strong>Availability:</strong> Open to internships and freelance opportunities
+  </p><br>
+
+  <p style="font-size: 1.1rem; line-height: 1.7; max-width: 900px;">
+    When I'm not coding, I enjoy exploring sci-fi content, editing videos, and gaming.<br>
+    <i class="fas fa-quote-left" style="color: #aaa;"></i>
+    <em>“Code is like humor. When you have to explain it, it’s bad.”</em>
+    <i class="fas fa-quote-right" style="color: #aaa;"></i>
+  </p>
+</section>
+
+
+  <!-- CONTACT SECTION -->
+  <section id="contact" style="background: #f1f1f1;">
+    <h2>Contact</h2>
+    <p>📧 Email: sergeojefrin@gmail.com<br>
+       🟢 WhatsApp: <a href="https://wa.me/917200760701" style="color:#00d0ff;" target="_blank">WhatsApp</a><br>
+       🔗 LinkedIn: <a href="https://www.linkedin.com/in/jefrin-sergeo-j-g-242879315?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" style="color:#00d0ff;">linkedin.com/in/jefrin</a><br>
+       💻 GitHub: <a href="https://github.com/JEFRINsergeo" style="color:#00d0ff;">github.com/jefrinsergeo</a></p>
+  </section>
+
+  <!-- SCRIPT -->
+  <script>
+    function toggleMenu() {
+      document.getElementById("navMenu").classList.toggle("show");
+    }
+
+    function animateDownload(button) {
+      const icon = button.querySelector("i");
+      icon.classList.remove("clicked"); // reset
+      void icon.offsetWidth; // force reflow
+      icon.classList.add("clicked");
+    }
+
+    const text = [
+      "Software Developer",
+      "Python Enthusiast",
+      "Problem Solver",
+      "Tech Explorer"
+    ];
+
+    let count = 0;
+    let index = 0;
+    let currentText = '';
+    let letter = '';
+    const typingTextElement = document.querySelector('.typing-text');
+
+    (function type() {
+      if (count === text.length) count = 0;
+      currentText = text[count];
+      letter = currentText.slice(0, ++index);
+      typingTextElement.textContent = letter;
+      if (letter.length === currentText.length) {
+        count++;
+        index = 0;
+        setTimeout(type, 1000);
+      } else {
+        setTimeout(type, 100);
+      }
+    })();
+  </script>
+
+</body>
+</html>
